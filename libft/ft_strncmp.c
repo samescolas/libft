@@ -6,13 +6,13 @@
 /*   By: sescolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 11:36:04 by sescolas          #+#    #+#             */
-/*   Updated: 2017/01/13 11:36:58 by sescolas         ###   ########.fr       */
+/*   Updated: 2017/01/20 10:44:33 by sescolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strncmp(const char *s1, const char *s2, unsigned int n)
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	if (n-- < 1)
 		return (0);

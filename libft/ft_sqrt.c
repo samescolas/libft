@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_islower.c                                       :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sescolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/13 10:48:57 by sescolas          #+#    #+#             */
-/*   Updated: 2017/01/13 10:49:18 by sescolas         ###   ########.fr       */
+/*   Created: 2017/01/14 14:59:26 by sescolas          #+#    #+#             */
+/*   Updated: 2017/01/20 10:35:05 by sescolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_islower(int n)
+static int	ft_sqrthelper(long long n, long long guess)
 {
-	return (n >= 'a' && n <= 'z');
+	if (guess <= 0)
+		return (0);
+	if ((guess * guess) <= n)
+		return (guess);
+	return (ft_sqrthelper(n, guess - 1));
+}
+
+int			ft_sqrt(int n)
+{
+	return (ft_sqrthelper(n, n));
 }

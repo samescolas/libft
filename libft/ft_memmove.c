@@ -6,7 +6,7 @@
 /*   By: sescolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/09 17:05:02 by sescolas          #+#    #+#             */
-/*   Updated: 2017/01/13 11:32:58 by sescolas         ###   ########.fr       */
+/*   Updated: 2017/01/22 15:11:10 by sescolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	{
 		ft_memcpy(tmp, src, len);
 		ft_memcpy(dst, tmp, len);
+		free(tmp);
 	}
-	free(tmp);
 	return (dst);
 }

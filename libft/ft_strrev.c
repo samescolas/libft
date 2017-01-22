@@ -6,7 +6,7 @@
 /*   By: sescolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/13 11:15:48 by sescolas          #+#    #+#             */
-/*   Updated: 2017/01/13 11:17:49 by sescolas         ###   ########.fr       */
+/*   Updated: 2017/01/17 15:59:22 by sescolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,12 @@ char	*ft_strrev(char *s)
 	{
 		rev = head;
 		while (*s)
-			s++;
+			++s;
 		while (len)
 		{
 			--len;
 			*rev++ = (*--s);
 		}
-		*rev = '\0';
 	}
 	return (head);
 }

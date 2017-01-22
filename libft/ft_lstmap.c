@@ -6,13 +6,16 @@
 /*   By: sescolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/12 16:23:09 by sescolas          #+#    #+#             */
-/*   Updated: 2017/01/13 11:31:27 by sescolas         ###   ########.fr       */
+/*   Updated: 2017/01/20 12:30:42 by sescolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static t_list	*ft_lstcpynode(t_list *src);
+static t_list	*ft_lstcpynode(t_list *src)
+{
+	return (src ? ft_lstnew(src->content, src->content_size) : NULL);
+}
 
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
@@ -33,11 +36,4 @@ t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 		lst = lst->next;
 	}
 	return (new_lst);
-}
-
-static t_list	*ft_lstcpynode(t_list *src)
-{
-	if (src)
-		return (ft_lstnew(src->content, src->content_size));
-	return (NULL);
 }

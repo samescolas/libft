@@ -6,7 +6,7 @@
 /*   By: sescolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/09 14:40:10 by sescolas          #+#    #+#             */
-/*   Updated: 2017/01/09 14:40:53 by sescolas         ###   ########.fr       */
+/*   Updated: 2017/01/20 10:51:47 by sescolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	ft_putendl(const char *s)
 {
-	ft_putstr(ft_strjoin(s, "\n"));
+	ft_putstr((char *)s);
+	ft_putchar('\n');
 }

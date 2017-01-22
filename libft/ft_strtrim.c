@@ -6,13 +6,43 @@
 /*   By: sescolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/09 12:38:45 by sescolas          #+#    #+#             */
-/*   Updated: 2017/01/13 10:47:17 by sescolas         ###   ########.fr       */
+/*   Updated: 2017/01/20 11:41:42 by sescolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_countwhitespace(char *s);
+static int	ft_iswhitespace(char c)
+{
+	return (c == ' ' || c == '\t' || c == '\r' ||
+			c == '\n' || c == '\f' || c == '\v');
+}
+
+static int	ft_ctleadwhitespace(char *s)
+{
+	int		ct;
+
+	ct = 0;
+	while (s[ct] && ft_iswhitespace(s[ct]))
+		++ct;
+	return (ct);
+}
+
+static int	ft_cttrailwhitespace(char *s)
+{
+	int		ct;
+
+	ct = 0;
+	while (*(s + 1))
+		++s;
+	while (*s)
+	{
+		if (!ft_iswhitespace(*s--))
+			break ;
+		++ct;
+	}
+	return (ct);
+}
 
 char		*ft_strtrim(const char *s)
 {
@@ -22,7 +52,10 @@ char		*ft_strtrim(const char *s)
 
 	if (!s)
 		return (NULL);
-	len = ft_strlen((char *)s) - ft_countwhitespace((char *)s);
+	len = ft_strlen((char *)s) - ft_ctleadwhitespace((char *)s)
+		- ft_cttrailwhitespace((char *)s);
+	if (len < 0)
+		return (ft_strnew(0));
 	head = (char *)malloc((len + 1) * sizeof(char));
 	if (head)
 	{
@@ -37,29 +70,4 @@ char		*ft_strtrim(const char *s)
 		*str = '\0';
 	}
 	return (head);
-}
-
-static int	ft_countwhitespace(char *s)
-{
-	int	word;
-	int	count;
-
-	word = 0;
-	count = 0;
-	while (ft_iswhitespace(*s))
-	{
-		++count;
-		++s;
-	}
-	if (!*s)
-		return (count);
-	while (*s)
-		++s;
-	--s;
-	while (*s && ft_iswhitespace(*s))
-	{
-		++count;
-		--s;
-	}
-	return (count);
 }

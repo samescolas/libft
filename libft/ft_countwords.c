@@ -1,18 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isupper.c                                       :+:      :+:    :+:   */
+/*   ft_countwords.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sescolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/13 10:48:24 by sescolas          #+#    #+#             */
-/*   Updated: 2017/01/13 10:49:36 by sescolas         ###   ########.fr       */
+/*   Created: 2017/01/14 10:28:23 by sescolas          #+#    #+#             */
+/*   Updated: 2017/01/14 16:24:26 by sescolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isupper(int n)
+int		ft_countwords(const char *s, char c)
 {
-	return (n >= 'A' && n <= 'Z');
+	int words;
+
+	if (!c)
+		c = ' ';
+	while (*s && *s == c)
+		s++;
+	words = 0;
+	while (*s)
+	{
+		++words;
+		while (*s && *s != c)
+			++s;
+		while (*s && *s == c)
+			++s;
+	}
+	return (words);
 }

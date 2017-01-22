@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_isprime.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sescolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/09 14:45:19 by sescolas          #+#    #+#             */
-/*   Updated: 2017/01/20 10:34:49 by sescolas         ###   ########.fr       */
+/*   Created: 2017/01/14 14:52:55 by sescolas          #+#    #+#             */
+/*   Updated: 2017/01/14 16:27:15 by sescolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(const char *s, int fd)
+static int		ft_primehelper(int n, int guess)
 {
-	if (s)
-		write(fd, s, ft_strlen((char *)s));
+	if (n < 2)
+		return (0);
+	if (guess < 2)
+		return (1);
+	if (n % guess == 0)
+		return (0);
+	return (ft_primehelper(n, guess - 1));
+}
+
+int				ft_isprime(int n)
+{
+	return (ft_primehelper(n, ft_sqrt(n)));
 }

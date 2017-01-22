@@ -6,7 +6,7 @@
 /*   By: sescolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/09 13:19:38 by sescolas          #+#    #+#             */
-/*   Updated: 2017/01/13 11:29:37 by sescolas         ###   ########.fr       */
+/*   Updated: 2017/01/20 10:26:29 by sescolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,25 +22,16 @@ char		*ft_itoa(int n)
 	if (!bkwds_num)
 		return (NULL);
 	head = bkwds_num;
-	if (n < 0)
-	{
-		sign = -1;
-		if (n == -2147483648)
-		{
-			*bkwds_num++ = '8';
-			n /= 10;
-		}
-		n *= sign;
-	}
-	else
-		sign = 1;
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	sign = (n < 0 ? -1 : 1);
+	n *= sign;
 	while (n > 9)
 	{
 		*bkwds_num++ = (n % 10) + '0';
 		n /= 10;
 	}
 	*bkwds_num++ = n + '0';
-	if (sign == -1)
-		*bkwds_num++ = '-';
+	*bkwds_num = (sign == -1 ? '-' : '\0');
 	return (ft_strrev(head));
 }

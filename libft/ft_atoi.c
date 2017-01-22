@@ -6,13 +6,19 @@
 /*   By: sescolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 11:55:58 by sescolas          #+#    #+#             */
-/*   Updated: 2017/01/13 10:46:47 by sescolas         ###   ########.fr       */
+/*   Updated: 2017/01/20 12:05:42 by sescolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int			ft_atoi(char *str)
+static int	ft_iswhitespace(char c)
+{
+	return (c == ' ' || c == '\t' || c == '\n' ||
+			c == '\r' || c == '\f' || c == '\v');
+}
+
+int			ft_atoi(const char *str)
 {
 	int sum;
 	int sign;

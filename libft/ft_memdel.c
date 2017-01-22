@@ -6,7 +6,7 @@
 /*   By: sescolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/08 19:26:42 by sescolas          #+#    #+#             */
-/*   Updated: 2017/01/12 17:41:17 by sescolas         ###   ########.fr       */
+/*   Updated: 2017/01/14 16:35:18 by sescolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 void	ft_memdel(void **ap)
 {
-	if (ap)
-	{
-		free(*ap);
-		*ap = NULL;
-	}
+	if (!ap)
+		return ;
+	free(*ap);
+	*ap = NULL;
 }
