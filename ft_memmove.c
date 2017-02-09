@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sescolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/09 12:33:19 by sescolas          #+#    #+#             */
-/*   Updated: 2017/01/22 15:11:47 by sescolas         ###   ########.fr       */
+/*   Created: 2017/01/09 17:05:02 by sescolas          #+#    #+#             */
+/*   Updated: 2017/01/20 10:32:26 by sescolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(const char *s1, const char *s2)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char *new_str;
-	char *ret_str;
+	void	*tmp;
 
-	if (!s1 || !s2)
-		return (NULL);
-	new_str = ft_strnew((ft_strlen((char *)s1) + ft_strlen((char *)s2)));
-	if (!new_str)
-		return (NULL);
-	ret_str = new_str;
-	while (*s1)
-		*new_str++ = *s1++;
-	while (*s2)
-		*new_str++ = *s2++;
-	*new_str = '\0';
-	return (ret_str);
+	tmp = malloc(len);
+	if (tmp)
+	{
+		ft_memcpy(tmp, src, len);
+		ft_memcpy(dst, tmp, len);
+	}
+	free(tmp);
+	return (dst);
 }

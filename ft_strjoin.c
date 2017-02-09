@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sescolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/12 15:55:07 by sescolas          #+#    #+#             */
-/*   Updated: 2017/01/20 10:28:08 by sescolas         ###   ########.fr       */
+/*   Created: 2017/01/09 12:33:19 by sescolas          #+#    #+#             */
+/*   Updated: 2017/01/20 10:40:58 by sescolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+char	*ft_strjoin(const char *s1, const char *s2)
 {
-	t_list	*node;
+	char *new_str;
+	char *ret_str;
 
-	node = *alst;
-	while ((*alst)->next)
-	{
-		node = (*alst)->next;
-		ft_lstdelone(alst, del);
-		*alst = node;
-	}
-	ft_lstdelone(alst, del);
+	if (!s1 || !s2)
+		return (NULL);
+	new_str = ft_strnew((ft_strlen((char *)s1) + ft_strlen((char *)s2)) - 1);
+	if (!new_str)
+		return (NULL);
+	ret_str = new_str;
+	while (*s1)
+		*new_str++ = *s1++;
+	while (*s2)
+		*new_str++ = *s2++;
+	*new_str = '\0';
+	return (ret_str);
 }

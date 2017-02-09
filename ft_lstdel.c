@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sescolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/09 17:05:02 by sescolas          #+#    #+#             */
-/*   Updated: 2017/01/22 15:11:10 by sescolas         ###   ########.fr       */
+/*   Created: 2017/01/12 15:55:07 by sescolas          #+#    #+#             */
+/*   Updated: 2017/02/08 12:55:03 by sescolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	void	*tmp;
+	t_list	*node;
 
-	tmp = malloc(len);
-	if (tmp)
+	node = *alst;
+	while ((*alst)->next)
 	{
-		ft_memcpy(tmp, src, len);
-		ft_memcpy(dst, tmp, len);
-		free(tmp);
+		node = (*alst)->next;
+		ft_lstdelone(alst, del);
+		*alst = node;
 	}
-	return (dst);
+	ft_lstdelone(alst, del);
 }
