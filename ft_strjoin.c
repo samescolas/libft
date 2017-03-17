@@ -6,7 +6,7 @@
 /*   By: sescolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/09 12:33:19 by sescolas          #+#    #+#             */
-/*   Updated: 2017/01/20 10:40:58 by sescolas         ###   ########.fr       */
+/*   Updated: 2017/03/17 12:30:08 by sescolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 
 	if (!s1 || !s2)
 		return (NULL);
-	new_str = ft_strnew((ft_strlen((char *)s1) + ft_strlen((char *)s2)) - 1);
+	new_str = ft_strnew((ft_strlen((char *)s1) + ft_strlen((char *)s2)));
 	if (!new_str)
 		return (NULL);
 	ret_str = new_str;
