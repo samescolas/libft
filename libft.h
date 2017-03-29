@@ -13,12 +13,14 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# define BUFF_SIZE 32
-
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
 # include <fcntl.h>
+
+# define BUFF_SIZE 32
+
+# define DEFAULT "\x1B[0m"
 
 typedef struct		s_list
 {
@@ -64,8 +66,10 @@ void				ft_putchar(char c);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putendl(const char *s);
 void				ft_putendl_fd(const char *s, int fd);
+void				ft_padnbr(int n, int offset, char *color);
 void				ft_putnbr(int n);
 void				ft_putnbr_fd(int n, int fd);
+void				ft_padstr(const char *s, int offset, char *color);
 void				ft_putstr(const char *s);
 void				ft_putstr_fd(const char *s, int fd);
 int					ft_sqrt(int n);

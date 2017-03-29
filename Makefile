@@ -25,7 +25,8 @@ OBJS = ft_atoi.o ft_bzero.o ft_isalnum.o ft_countwords.o \
 	   ft_strjoin.o ft_strlcat.o ft_strlen.o ft_strmap.o ft_strmapi.o \
 	   ft_strncat.o ft_strncmp.o ft_strncpy.o ft_strnequ.o ft_strnew.o \
 	   ft_strnstr.o ft_strrchr.o ft_strrev.o ft_strsplit.o ft_strstr.o \
-	   ft_strsub.o ft_strtrim.o ft_tolower.o ft_toupper.o get_next_line.o
+	   ft_strsub.o ft_strtrim.o ft_tolower.o ft_toupper.o get_next_line.o \
+	   ft_padstr.o ft_padnbr.o
 
 SRCS = ft_atoi.c ft_bzero.c ft_isalnum.c ft_countwords.c \
 	   ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprime.c \
@@ -40,7 +41,8 @@ SRCS = ft_atoi.c ft_bzero.c ft_isalnum.c ft_countwords.c \
 	   ft_strjoin.c ft_strlcat.c ft_strlen.c ft_strmap.c ft_strmapi.c \
 	   ft_strncat.c ft_strncmp.c ft_strncpy.c ft_strnequ.c ft_strnew.c \
 	   ft_strnstr.c ft_strrchr.c ft_strrev.c ft_strsplit.c ft_strstr.c \
-	   ft_strsub.c ft_strtrim.c ft_tolower.c ft_toupper.c get_next_line.c
+	   ft_strsub.c ft_strtrim.c ft_tolower.c ft_toupper.c get_next_line.c \
+	   ft_padstr.c ft_padnbr.c
 
 all: $(NAME)
 
