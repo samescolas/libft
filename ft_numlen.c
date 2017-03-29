@@ -16,7 +16,9 @@ int		ft_numlen(int n)
 {
 	int len;
 
-	len = (n < 0) + 1;
+	if (n == 0)
+		return (1);
+	len = (n < 0);
 	while (n != 0)
 	{
 		n /= 10;
