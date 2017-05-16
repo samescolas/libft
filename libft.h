@@ -6,7 +6,7 @@
 /*   By: sescolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 15:24:45 by sescolas          #+#    #+#             */
-/*   Updated: 2017/04/12 20:36:20 by sescolas         ###   ########.fr       */
+/*   Updated: 2017/05/16 11:58:09 by sescolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int					ft_atoi(const char *str);
 void				ft_bzero(void *s, size_t n);
 int					ft_countwords(const char *s, char c);
 int					ft_exp(int base, int power);
+void				ft_fatal(char *s);
 int					ft_isalnum(int n);
 int					ft_isalpha(int n);
 int					ft_isascii(int n);
@@ -105,6 +106,7 @@ char				*ft_strsub(const char *s, unsigned int start, size_t len);
 char				*ft_strtrim(const char *s);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
+void				ft_wrap(char *str, char c);
 int					get_next_line(const int fd, char **line);
 
 #endif
