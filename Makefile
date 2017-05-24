@@ -6,7 +6,7 @@
 #    By: sescolas <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/13 09:59:58 by sescolas          #+#    #+#              #
-#    Updated: 2017/02/28 18:32:25 by sescolas         ###   ########.fr        #
+#    Updated: 2017/05/23 17:03:52 by sescolas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,9 @@ HEADER = libft.h
 SRCS = 	$(wildcard *.c)
 
 OBJS = $(SRCS:.c=.o)
+
+CC = gcc
+CFLAGS = -I ../includes
 
 all: $(NAME)
 

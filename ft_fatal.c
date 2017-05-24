@@ -6,14 +6,15 @@
 /*   By: sescolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/16 10:42:01 by sescolas          #+#    #+#             */
-/*   Updated: 2017/05/16 10:43:31 by sescolas         ###   ########.fr       */
+/*   Updated: 2017/05/23 16:56:48 by sescolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "ft_atexit.h"
 
 void	ft_fatal(char *str)
 {
 	write(2, str, ft_strlen(str));
-	exit(0);
+	ft_atexit();
 }
