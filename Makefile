@@ -6,7 +6,7 @@
 #    By: sescolas <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/13 09:59:58 by sescolas          #+#    #+#              #
-#    Updated: 2017/05/23 17:03:52 by sescolas         ###   ########.fr        #
+#    Updated: 2017/05/25 11:16:57 by sescolas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRCS = 	$(wildcard *.c)
 OBJS = $(SRCS:.c=.o)
 
 CC = gcc
-CFLAGS = -I ../includes
+CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
@@ -28,12 +28,13 @@ $(NAME): $(OBJS) $(HEADER)
 	ranlib $@
 
 $(OBJS): $(SRCS) $(HEADER)
+	@if [ $@ =  "ft_fatal.o" ]; then \
+		$(CC) $(CFLAGS) -I ../includes -c $(subst .o,.c,$@) -o $@; \
+	else \
+		$(CC) $(CFLAGS) -c $(subst .o,.c,$@) -o $@; \
+	fi;
 
 .PHONY: clean fclean re
-
-print: $(SRCS)
-	lpr -p $?
-	touch print
 
 clean:
 	rm -f *.o
