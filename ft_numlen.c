@@ -5,23 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sescolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/13 10:51:52 by sescolas          #+#    #+#             */
-/*   Updated: 2017/01/20 10:32:53 by sescolas         ###   ########.fr       */
+/*   Created: 2017/08/06 15:26:15 by sescolas          #+#    #+#             */
+/*   Updated: 2017/08/07 10:58:20 by sescolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_numlen(int n)
+size_t		ft_numlen(long long num, short base)
 {
-	int len;
+	short	len;
 
-	if (n == 0)
+	if (num == 0)
 		return (1);
-	len = (n < 0);
-	while (n != 0)
+	len = (num < 0);
+	while (num != 0)
 	{
-		n /= 10;
+		num /= base;
 		++len;
 	}
 	return (len);

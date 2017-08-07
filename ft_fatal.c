@@ -5,16 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sescolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/16 10:42:01 by sescolas          #+#    #+#             */
-/*   Updated: 2017/05/23 16:56:48 by sescolas         ###   ########.fr       */
+/*   Created: 2017/08/06 16:28:18 by sescolas          #+#    #+#             */
+/*   Updated: 2017/08/07 10:51:59 by sescolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "ft_atexit.h"
+#include "../ft_printf.h"
 
-void	ft_fatal(char *str)
+void	ft_fatal(char *err_msg)
 {
-	write(2, str, ft_strlen(str));
-	ft_atexit();
+	while (*err_msg != '\0')
+	{
+		write(1, err_msg, 1);
+		err_msg += 1;
+	}
+	exit(0);
 }

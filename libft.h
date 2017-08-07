@@ -6,7 +6,7 @@
 /*   By: sescolas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/14 15:24:45 by sescolas          #+#    #+#             */
-/*   Updated: 2017/05/25 11:31:32 by sescolas         ###   ########.fr       */
+/*   Updated: 2017/08/07 11:06:40 by sescolas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int					ft_isascii(int n);
 int					ft_isdigit(int n);
 int					ft_isprime(int n);
 int					ft_isprint(int n);
-char				*ft_itoa(int n);
+char				*ft_itoa_base(long long n, short base, char base_case);
 void				ft_lstadd(t_list **alst, t_list *new_node);
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
@@ -63,12 +63,11 @@ void				*ft_memcpy(void *dst, const void *src, size_t n);
 void				ft_memdel(void **ap);
 void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memset(void *b, int c, size_t len);
-int					ft_numlen(int n);
+size_t				ft_numlen(long long n, short base);
 int					ft_putchar(int c);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putendl(const char *s);
 void				ft_putendl_fd(const char *s, int fd);
-void				ft_padnbr(int n, int offset, char *color);
 void				ft_putnbr(int n);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_padstr(const char *s, int offset, char *color);
