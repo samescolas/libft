@@ -18,6 +18,11 @@ static int	ft_iswhitespace(char c)
 			c == '\r' || c == '\f' || c == '\v');
 }
 
+static int	ft_isnumeric(char c)
+{
+	return (c >= '0' && c <= '9');
+}
+
 int			ft_atoi(const char *str)
 {
 	int sum;
@@ -25,20 +30,13 @@ int			ft_atoi(const char *str)
 
 	sign = 1;
 	sum = 0;
-	while (*str && ft_iswhitespace(*str))
+	while (ft_iswhitespace(*str))
 		str++;
+	if (*str == '-')
+		sign = -1;
 	if (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-			sign = -1;
 		str++;
-	}
-	while (*str)
-	{
-		if (*str >= '0' && *str <= '9')
-			sum = ((sum * 10) + ((*str++) - '0'));
-		else
-			return (sum * sign);
-	}
+	while (ft_isnumeric(*str))
+		sum = ((sum * 10) + ((*str++) - '0'));
 	return (sum * sign);
 }
