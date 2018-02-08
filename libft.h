@@ -19,6 +19,8 @@
 # include <fcntl.h>
 
 # define BUFF_SIZE 32
+# define INT_MIN -2147483648
+# define INT_MAX 2147483647
 
 # define DEFAULT "\x1B[0m"
 

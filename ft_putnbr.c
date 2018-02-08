@@ -17,10 +17,11 @@ void	ft_putnbr(int n)
 	if (n < 0)
 	{
 		ft_putchar('-');
-		if (n == -2147483648)
+		// can't multiply INT_MIN * -1 because it will overflow
+		if (n == INT_MIN)
 		{
 			ft_putchar('2');
-			n = 147483648;
+			n -= 200000000; // strip off leftmost digit
 		}
 		else
 			n *= -1;
