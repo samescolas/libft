@@ -17,11 +17,11 @@ int		ft_strfind(char *str, char c)
 	int	len;
 
 	len = 0;
-	while (str[len])
+	while (str[len] != '\0')
 	{
 		if (str[len] == c)
 			return (len);
 		++len;
 	}
-	return (len);
+	return (-1);
 }
