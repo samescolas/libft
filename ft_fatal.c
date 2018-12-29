@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include <stdlib.h>
+#include <unistd.h>
 
 void	ft_fatal(char *err_msg)
 {
